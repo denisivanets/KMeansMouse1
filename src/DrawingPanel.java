@@ -13,7 +13,6 @@ public class DrawingPanel extends JPanel {
 
     @Override
     public void paint(Graphics g) {
-        System.out.println("Points");
         PointStorage.getInstance().getPointList().forEach(point -> System.out.println(point.getX() + ";" + point.getY()));
         kMeans.getCurrentClusterState().forEach(
                 (cluster) -> {

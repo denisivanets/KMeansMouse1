@@ -41,20 +41,16 @@ public class Main {
                     }
                 }
         );
-//        MouseListener listener = new MouseAdapter() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//                if (e.getButton() == MouseEvent.BUTTON1){
-//                    PointStorage.getInstance().getPointList().add(new Point(e.getX(), e.getY()));
-//                    pointsPanel.update(pointsPanel.getGraphics());
-//                }
-//                else if(e.getButton() == MouseEvent.BUTTON3){
-//                    pointsPanel.deletePoint( e.getX(), e.getY());
-//                    frame.update(frame.getGraphics());
-//                }
-//            }
-//        };
-//        pointsPanel.addMouseListener(listener);
+        MouseListener listener = new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(e.getButton() == MouseEvent.BUTTON3){
+                    pointsPanel.deletePoint( e.getX(), e.getY());
+                    frame.update(frame.getGraphics());
+                }
+            }
+        };
+        pointsPanel.addMouseListener(listener);
         frame.getContentPane().add(BorderLayout.EAST, box);
         frame.setVisible(true);
     }

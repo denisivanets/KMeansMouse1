@@ -6,7 +6,7 @@ public class KMeans {
     private List<Cluster> previousClusterState = new ArrayList<>();
     private boolean isClustersCreated = false;
     public void runAlgorithm() {
-        if (isClustersCreated == true) return;
+        if (isClustersCreated) return;
         PointStorage.getInstance().dropFlags();
         Point randomPoint = getRandomPoint();
         Cluster cluster = new Cluster(
@@ -26,7 +26,7 @@ public class KMeans {
         makeIters();
     }
     private void makeIters() {
-        while (isStateChanged() == true) {
+        while (isStateChanged()) {
             copyLists();
             changeCenters();
             makeDependecies();
